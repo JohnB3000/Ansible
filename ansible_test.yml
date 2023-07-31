@@ -2,7 +2,5 @@
   tasks:
     - name: Install Multiple Programs
       win_chocolatey:
-      name: '{{ item }}'
+      name: 7zip
       state: present
-    with_items:
-      - 7zip
