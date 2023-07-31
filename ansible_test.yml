@@ -1,6 +1,5 @@
-- name: Ansible_test
-  tasks:
-    - name: Install Multiple Programs
-      win_chocolatey:
-      name: 7zip
-      state: present
+- name: Install multiple packages
+  win_chocolatey:
+    name:
+    - 7zip
+    state: present
