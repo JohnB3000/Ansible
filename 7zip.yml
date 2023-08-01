@@ -1,6 +1,4 @@
 - hosts: all
-  collections:
-  - name: chocolatey.chocolatey
   tasks:
   - name: Install 7-zip
     chocolatey.chocolatey.win_chocolatey:
