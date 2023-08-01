@@ -6,5 +6,5 @@
     dnf:
       name:
         - htop
-
+      state: present
 ...
