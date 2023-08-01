@@ -1,0 +1,10 @@
+- hosts: rhel
+  tasks:
+  - name: htop
+    become: true
+    become_user: root
+    dnf:
+      name:
+        - htop
+
+...
