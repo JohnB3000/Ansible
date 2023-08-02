@@ -1,9 +1,9 @@
-- hosts: 10.1.10.81
+- hosts: all
   tasks:
   - name: htop
     become: true
     dnf:
       name:
-        - htop
+        - htop      
       state: present
 ...
