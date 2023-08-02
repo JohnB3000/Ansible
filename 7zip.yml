@@ -6,6 +6,6 @@
         - 7zip
         - notepadplusplus
 #      state: present
-      remove_dependencies: true
+      become: true
       state: absent
 ...
