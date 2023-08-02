@@ -8,5 +8,5 @@
         - UpdateRollups
       state: searched
       log_path: C:\ansible_wu.txt
-      found_update_count
+      register: available_updates
 ...
