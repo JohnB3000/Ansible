@@ -1,17 +1,27 @@
 ---
-- hosts: all
-  gather_facts: no
-  vars:
-    win_update_categories:
-        - CriticalUpdates
-        - DefinitionUpdates
-        - SecurityUpdates
-        - Updates
-        - UpdateRollups
+- name: Search windows updates
+  hosts: windows_systems
+  gather_facts: yes
+
   tasks:
-    - block:
-        - name: Checking for Available Windows Updates
-          win_updates:
-            category_names: "{{ win_update_categories }}"
-            state: searched
-          register: available_updates
+
+  - block:
+    - name: Search updates
+      win_updates:
+        category_names:
+        - CriticalUpdates
+        - SecurityUpdates
+        - UpdateRollups
+        reboot: no
+        state: searched
+      become: yes
+      become_method: runas
+      become_user: SYSTEM
+      register: update_results
+
+    - name: Report results
+      debug:
+        msg: |
+          {% for k in update_results.updates %}
+          {{ update_results.updates[k].title }}
+          {% endfor %}
