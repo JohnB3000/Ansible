@@ -4,9 +4,7 @@
     - name: Get disk facts
       win_disk_facts:
 
- #    - name: Output first disk size
- #     debug:
- #       var: ansible_facts.disks[0].size 
+
 
     - name: system disk size
       debug:
@@ -17,4 +15,4 @@
 
         # Show disk size in Gigabytes
         disksize_gb_human: '{{ disk.size|filesizeformat }}'        # returns "240.1 GB" (human readable)
-        disksize_gb: '{{ (disk.size/1000|pow(3))|round|int }} GB'  # returns "240 GB" (value in GB)
+       
