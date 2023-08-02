@@ -16,7 +16,4 @@
       register: update_results
     - name: Report results
       debug:
-        msg: |
-          {% for k in update_results.updates %}
-          {{ update_results.updates[k].title }}
-          {% endfor %}
+        msg: update_results.updates.title
