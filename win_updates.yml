@@ -1,19 +1,11 @@
----
-- name: Search windows updates
-  hosts: all
-  gather_facts: yes
-
+- hosts: all
   tasks:
-
-  - block:
-    - name: Search updates
-      win_updates:
-        category_names:
-        - CriticalUpdates
+  - name: Search-only, return list of found updates (if any), log to C:\ansible_wu.txt
+    ansible.windows.win_updates:
+      category_names:
         - SecurityUpdates
+        - CriticalUpdates
         - UpdateRollups
-        state: searched
-      register: update_results
-    - name: Report results
-      debug:
-        msg: update_results.updates.title
+      state: searched
+      log_path: C:\ansible_wu.txt
+...
