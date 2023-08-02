@@ -1,6 +1,6 @@
 ---
 - name: Search windows updates
-  hosts: windows_systems
+  hosts: all
   gather_facts: yes
 
   tasks:
@@ -12,13 +12,8 @@
         - CriticalUpdates
         - SecurityUpdates
         - UpdateRollups
-        reboot: no
         state: searched
-      become: yes
-      become_method: runas
-      become_user: SYSTEM
       register: update_results
-
     - name: Report results
       debug:
         msg: |
