@@ -1,16 +1,18 @@
 ---
 - hosts: all
-  gather_facts: no     
+  gather_facts: no
+  vars:
+    win_update_categories:
+        - CriticalUpdates
+        - DefinitionUpdates
+        - SecurityUpdates
+        - Updates
+        - UpdateRollups
   tasks:
     - block:
         - name: Checking for Available Windows Updates
           win_updates:
-            category_names: 
-              - CriticalUpdates
-              - DefinitionUpdates
-              - SecurityUpdates
-              - Updates
-              - UpdateRollups
+            category_names: "{{ win_update_categories }}"
             state: searched
           register: available_updates
         - name: List missing Updates
