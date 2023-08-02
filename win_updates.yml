@@ -15,7 +15,3 @@
             category_names: "{{ win_update_categories }}"
             state: searched
           register: available_updates
-        - name: List missing Updates
-          debug: 
-            msg: "{{ inventory_hostname }} has {{ available_updates.found_update_count }} updates available. The following updates are available for install: {{ available_updates.contains.item }}"
-            with_items: "{{ title }}"
