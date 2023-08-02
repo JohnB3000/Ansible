@@ -2,5 +2,5 @@
 collections:
 - chocolatey.chocolatey
 - ansible.windows
-- community.windows.win_disk_facts
+- windows.win_disk_facts
 ...
