@@ -7,5 +7,4 @@
         - notepadplusplus
         - mremoteng
       state: present
-      state: present
 ...
