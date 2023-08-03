@@ -5,7 +5,6 @@
       name:
         - 7zip
         - notepadplusplus
-#      state: present
-      become: true
-      state: absent
+        - mremoteng
+      state: present
 ...
