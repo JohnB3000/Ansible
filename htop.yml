@@ -2,7 +2,7 @@
   tasks:
   - name: htop
     become: true
-    dnf:
+    apt:
       name:
         - htop      
       state: present
