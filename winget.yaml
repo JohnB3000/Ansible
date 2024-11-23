@@ -1,6 +1,6 @@
 - hosts: all
   tasks:
   - name: Winget install 7-zip
-    ansible.windows.win_package:
-      product_id: 7zip.7zip
+    ansible.windows.win_winget:
+      name: 7zip.7zip
       state: present
