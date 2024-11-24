@@ -2,5 +2,5 @@
     "yaml.schemas": {
         "https://json.schemastore.org/yamllint.json": "file:///home/john/github/Ansible/windows_install_7-Zip.yaml"
     },
-    "ansible.python.interpreterPath": "/bin/python3"
+    "ansible.python.interpreterPath": "/usr/bin/python3"
 }
