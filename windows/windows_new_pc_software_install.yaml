@@ -1,10 +1,10 @@
 - name: New PC Software Install
   hosts: all
   tasks:
-    - name: Update winget sources and accept agreements
-      win_command: winget source update
-      become: true
-      
+    - name: Update Winget source and accept agreements
+      ansible.windows.win_shell: |
+        winget source update --accept-source-agreements --accept-package-agreements
+
     - name: Install Brave
       ansible.windows.win_shell: |
         winget install -e --id Brave.Brave
