@@ -20,8 +20,9 @@
       ansible.windows.win_shell: |
         Get-AppxPackage -Name Microsoft.BingNews | Remove-AppxPackage
     - name: Uninstall OneDrive
-      ansible.windows.win_shell: |
-        Get-AppxPackage -Name *OneDrive* | Remove-AppxPackage
+        ansible.windows.win_shell: |
+        winget uninstall "Microsoft OneDrive"
+      ignore_errors: true
     - name: Uninstall Teams
       ansible.windows.win_shell: |
         Get-AppxPackage -Name *Teams* | Remove-AppxPackage
@@ -64,6 +65,10 @@
     - name: Uninstall ZuneMusic
       ansible.windows.win_shell: |
         Get-AppxPackage -Name Microsoft.ZuneMusic | Remove-AppxPackage
+    - name: Uninstall Xbox 
+      ansible.windows.win_shell: |
+        winget uninstall "Xbox"
+      ignore_errors: true
 
 
 
