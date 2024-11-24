@@ -55,7 +55,7 @@
     - name: Uninstall MicrosoftStickyNotes
       ansible.windows.win_shell: |
         Get-AppxPackage -Name Microsoft.MicrosoftStickyNotes | Remove-AppxPackage
-      - name: Uninstall BingWeather
+    - name: Uninstall BingWeather
       ansible.windows.win_shell: |
         Get-AppxPackage -Name Microsoft.BingWeather | Remove-AppxPackage
     - name: Uninstall WindowsAlarms
