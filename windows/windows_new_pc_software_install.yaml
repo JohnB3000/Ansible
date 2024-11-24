@@ -1,16 +1,16 @@
 - name: New PC Software Install
   hosts: all
   tasks:
-    # - name: Set geographic region to GB
-    #   win_shell: |
-    #     Set-WinUILanguageOverride -Language en-US
-    #     Set-WinUserLanguageList -LanguageList en-US -Force
-    #     Set-WinSystemLocale -SystemLocale en-US
-    #     Set-Culture -CultureInfo en-US
-    #  become: true
+    - name: Set geographic region to GB
+      win_shell: |
+        Set-WinUILanguageOverride -Language en-GB
+        Set-WinUserLanguageList -LanguageList en-GB -Force
+        Set-WinSystemLocale -SystemLocale en-GB
+        Set-Culture -CultureInfo en-GB
+      become: true
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
-        winget install --geolocation GB -e --id "Brave.Brave --accept-source-agreements
+        winget install -e --id "Brave.Brave --accept-source-agreements
       become: true
 
 
