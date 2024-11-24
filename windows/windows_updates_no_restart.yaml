@@ -1,0 +1,7 @@
+- name: Install all updates that dont require reboot
+  hosts: all
+  tasks:
+    - name: Install updates
+      ansible.windows.win_updates:
+        category_names: '*'
+        reboot: false
