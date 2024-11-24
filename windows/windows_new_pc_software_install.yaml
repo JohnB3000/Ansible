@@ -1,14 +1,10 @@
 - name: New PC Software Install
   hosts: all
-  tasks:
-    - name: disabel MSStore
-      ansible.windows.win_shell: |
-        winget source remove msstore
-      become: true
+  tasks:     
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
         winget install -e --id Brave.Brave
-
+      become: true
 
 
 
