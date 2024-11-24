@@ -25,7 +25,15 @@
         - Microsoft.WindowsSoundRecorder
         - Microsoft.BingWeather
         - Microsoft.WindowsAlarms
-        - Clipchamp
     - name: Uninstall OneDrive
       ansible.windows.win_shell: |
         winget uninstall "Microsoft OneDrive"
+    - name: Uninstall OClipchamp
+      ansible.windows.win_shell: |
+        winget uninstall "Microsoft Clipchamp"
+    - name: Uninstall Microsoft Teams
+      ansible.windows.win_shell: |
+        winget uninstall "Microsoft Teams"
+    - name: Uninstall Xbox 
+      ansible.windows.win_shell: |
+        winget uninstall "Xbox"
