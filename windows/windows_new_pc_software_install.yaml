@@ -2,17 +2,10 @@
   hosts: all
   become: true
   tasks:
-
-    - name: Ensure Chocolatey is installed
-      win_chocolatey:
-        name: chocolatey
-        state: present
-
-    - name: Install Brave browser using Chocolatey
-      win_chocolatey:
-          name: brave
-          state: present
-          params: '--install-arguments="INSTALLDIR=C:\Program Files\BraveSoftware" --force'
+    - name: Install Brave
+      ansible.windows.win_shell: |
+        winget install -e --id Brave.Brave
+    
 
   # - name: Install Chocolatry packages
   #   chocolatey.chocolatey.win_chocolatey:
