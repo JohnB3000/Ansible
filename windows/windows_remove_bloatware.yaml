@@ -25,7 +25,8 @@
         - Microsoft.WindowsSoundRecorder
         - Microsoft.BingWeather
         - Microsoft.WindowsAlarms
-        
+        - "*Xbox*"
+
     - name: Uninstall OneDrive
       ansible.windows.win_shell: |
         winget uninstall "Microsoft OneDrive"
