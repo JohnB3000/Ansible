@@ -7,5 +7,5 @@
         - CriticalUpdates
         - UpdateRollups
       state: searched
-#      log_path: C:\ansible_wu.txt
+      log_path: C:\ansible_wu.txt
 ...
