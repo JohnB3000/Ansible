@@ -1,0 +1,11 @@
+- name: Remove Windows bloatware 
+  hosts: all
+  vars:
+    bloatware_apps:
+      - "Microsoft.MicrosoftSolitaireCollection"
+  tasks:
+    - name: Uninstall bloatware apps
+      win_package:
+        name: "{{ item }}"
+        state: absent
+      loop: "{{ bloatware_apps }}"
