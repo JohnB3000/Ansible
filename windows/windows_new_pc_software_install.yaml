@@ -1,9 +1,14 @@
 - name: New PC Software Install
   hosts: all
   tasks:
-    - name: Install PowerToys
-      ansible.windows.win_winget:
-        name: Brave.Brave
+    - name: Install Brave browser via winget
+      win_command: winget install -e --id Brave.Brave
+      register: install_result
+      become: true
+
+    - name: Debug Brave installation result
+      debug:
+        var: install_result
     # - name: Update winget sources and accept agreements
     #   ansible.windows.win_shell: |
     #     winget source update --accept-package-agreements
