@@ -6,4 +6,22 @@
         Get-AppxPackage -Name {{ item }} | Remove-AppxPackage
       loop:
         - Microsoft.MicrosoftSolitaireCollection
-        - 
+        - Microsoft.ZuneMusic
+        - Microsoft.Copilot
+        - Microsoft.WindowsFeedbackHub
+        - Microsoft.MicrosoftStickyNotes
+        - Microsoft.GetHelp
+        - Microsoft.GamingApp
+        - Microsoft.BingSearch
+        - Microsoft.BingNews
+        - Microsoft.OutlookForWindows
+        - Microsoft.ScreenSketch
+        - Microsoft.MicrosoftOfficeHub
+        - Microsoft.Todos
+        - Microsoft.WindowsNotepad
+        - Microsoft.Paint
+        - Microsoft.PowerAutomateDesktop
+        - MicrosoftCorporationII.QuickAssist
+        - Microsoft.WindowsSoundRecorder
+        - Microsoft.BingWeather
+        - Microsoft.WindowsAlarms
