@@ -7,33 +7,33 @@
         - brave
         - bitwarden-chrome
         - geforce-experience
-        - notepadplusplus
-        - mremoteng
-        - steam
-        - fpsmonitor
-        - icue
-        - lghub
-        - systeminformer-nightlybuilds
-        - samsung-magician
-        - discord
-        - thunderbird
-        - git
-        - vscode
-        - greenshot
+        # - notepadplusplus
+        # - mremoteng
+        # - steam
+        # - fpsmonitor
+        # - icue
+        # - lghub
+        # - systeminformer-nightlybuilds
+        # - samsung-magician
+        # - discord
+        # - thunderbird
+        # - git
+        # - vscode
+        # - greenshot
       state: present
 
-  - name: Download GameFirst VI installer
-    win_get_url:
-      url: "https://aquacomputer.de/software.html?file=tl_files/aquacomputer/downloads/aquasuite/aquasuite_setup.exe"
-      dest: "C:\\Users\\Public\\Downloads\\aquasuite_setup.exe"
+  # - name: Download GameFirst VI installer
+  #   win_get_url:
+  #     url: "https://aquacomputer.de/software.html?file=tl_files/aquacomputer/downloads/aquasuite/aquasuite_setup.exe"
+  #     dest: "C:\\Users\\Public\\Downloads\\aquasuite_setup.exe"
 
-  - name: Install GameFirst VI
-    win_shell: |
-      Start-Process -FilePath "C:\\Users\\Public\\Downloads\\aquasuite_setup.exe" -ArgumentList "/quiet /norestart" -Wait
-    args:
-      executable: powershell
+  # - name: Install GameFirst VI
+  #   win_shell: |
+  #     Start-Process -FilePath "C:\\Users\\Public\\Downloads\\aquasuite_setup.exe" -ArgumentList "/quiet /norestart" -Wait
+  #   args:
+  #     executable: powershell
 
-  - name: Clean up installer
-    win_file:
-      path: "C:\\Users\\Public\\Downloads\\aquasuite_setup.exe"
-      state: absent
+  # - name: Clean up installer
+  #   win_file:
+  #     path: "C:\\Users\\Public\\Downloads\\aquasuite_setup.exe"
+  #     state: absent
