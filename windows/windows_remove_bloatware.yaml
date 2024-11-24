@@ -6,3 +6,4 @@
         Get-AppxPackage -Name {{ item }} | Remove-AppxPackage
       loop:
         - Microsoft.MicrosoftSolitaireCollection
+        - 
