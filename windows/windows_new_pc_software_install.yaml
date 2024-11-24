@@ -1,11 +1,14 @@
 - name: New PC Software Install
   hosts: all
   tasks:
+    - name: Accept MSstore
+      ansible.windows.win_shell: |
+        winget.exe update --accept-source-agreements --accept-package-agreements
+
     - name: Install Brave Browser using winget
-      win_shell: |
-        winget install -e --id Brave.Brave --accept-package-agreements --accept-source-agreements
-      register: install_result
-      become: true
+      ansible.windows.win_shell: |
+        winget install -e --id Brave.Brave
+#      become: true
     # - name: Update winget sources and accept agreements
     #   ansible.windows.win_shell: |
     #     winget source update --accept-package-agreements
