@@ -12,7 +12,7 @@
       win_chocolatey:
           name: brave
           state: present
-          params: '--force'
+          params: '--install-arguments="INSTALLDIR=C:\Program Files\BraveSoftware" --force'
 
   # - name: Install Chocolatry packages
   #   chocolatey.chocolatey.win_chocolatey:
