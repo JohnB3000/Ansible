@@ -3,7 +3,7 @@
   become: true
   tasks:
     - name: Install Brave
-      ansible.windows.win_shell: |
+      ansible.windows.win_powershell: |
         winget install -e --id Brave.Brave
     
 
