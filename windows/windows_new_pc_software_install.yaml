@@ -1,10 +1,20 @@
 - name: New PC Software Install
   hosts: all
   tasks:
-  - name: Install Chocolatry packages
-    chocolatey.chocolatey.win_chocolatey:
-      name:
-        - brave
+    - name: Ensure Chocolatey is installed
+      win_chocolatey:
+        state: present
+
+    - name: Install Brave browser using Chocolatey
+      win_chocolatey:
+        name: brave
+        state: present
+        params: '--force'
+
+  # - name: Install Chocolatry packages
+  #   chocolatey.chocolatey.win_chocolatey:
+  #     name:
+  #       - brave
         #- bitwarden-chrome
         #- geforce-experience
         # - notepadplusplus
@@ -20,7 +30,7 @@
         # - git
         # - vscode
         # - greenshot
-      state: present
+  #    state: present
 
   # - name: Download GameFirst VI installer
   #   win_get_url:
