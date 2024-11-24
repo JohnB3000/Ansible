@@ -9,9 +9,9 @@
 
     - name: Install Brave browser using Chocolatey
       win_chocolatey:
-        name: brave
-        state: present
-        params: '--force'
+        - name: brave
+          state: present
+          params: '--force'
 
   # - name: Install Chocolatry packages
   #   chocolatey.chocolatey.win_chocolatey:
