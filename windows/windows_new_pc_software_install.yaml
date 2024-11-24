@@ -3,7 +3,8 @@
   tasks:
     - name: disabel MSStore
       ansible.windows.win_shell: |
-        winget source remove msstore
+        wwinget source remove msstore
+      become: true
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
         winget install -e --id Brave.Brave
