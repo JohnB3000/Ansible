@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: Install PowerToys
-      win_winget:
+      ansible.windows.win_winget:
         name: Brave.Brave
     # - name: Update winget sources and accept agreements
     #   ansible.windows.win_shell: |
