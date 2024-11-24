@@ -13,6 +13,9 @@
     - name: Uninstall BingSearch
       ansible.windows.win_shell: |
         Get-AppxPackage -Name Microsoft.BingSearch | Remove-AppxPackage
+    - name: Uninstall Camera
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.WindowsCamera | Remove-AppxPackage
     - name: Uninstall Clipchamp
       ansible.windows.win_shell: |
         Get-AppxPackage -Name *Clipchamp* | Remove-AppxPackage
@@ -71,4 +74,3 @@
     - name: Uninstall Xbox Live
       ansible.windows.win_shell: |
         Get-AppxPackage -Name Microsoft.Xbox.TCUI | Remove-AppxPackage
-      
