@@ -1,32 +1,91 @@
 - name: Remove Windows 11 bloatware 
   hosts: all
   tasks:
-    - name: Uninstall bloatware apps
+    - name: Uninstall SolitaireCollection
       ansible.windows.win_shell: |
-        Get-AppxPackage -Name {{ item }} | Remove-AppxPackage
-      loop:
-        - Microsoft.MicrosoftSolitaireCollection
-        - Microsoft.ZuneMusic
-        - Microsoft.Copilot
-        - Microsoft.WindowsFeedbackHub
-        - Microsoft.MicrosoftStickyNotes
-        - Microsoft.GetHelp
-        - Microsoft.GamingApp
-        - Microsoft.BingSearch
-        - Microsoft.BingNews
-        - Microsoft.OutlookForWindows
-        - Microsoft.ScreenSketch
-        - Microsoft.MicrosoftOfficeHub
-        - Microsoft.Todos
-        - Microsoft.WindowsNotepad
-        - Microsoft.Paint
-        - Microsoft.PowerAutomateDesktop
-        - MicrosoftCorporationII.QuickAssist
-        - Microsoft.WindowsSoundRecorder
-        - Microsoft.BingWeather
-        - Microsoft.WindowsAlarms
-        - "*Xbox*"
+        Get-AppxPackage -Name Microsoft.MicrosoftSolitaireCollection | Remove-AppxPackage
 
+    - name: Uninstall ZuneMusic
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.ZuneMusic | Remove-AppxPackage
+
+    - name: Uninstall Copilot
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.Copilot | Remove-AppxPackage
+
+    - name: Uninstall WindowsFeedbackHub
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.WindowsFeedbackHub | Remove-AppxPackage
+
+    - name: Uninstall MicrosoftStickyNotes
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.MicrosoftStickyNotes | Remove-AppxPackage
+
+    - name: Uninstall GetHelp
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.GetHelp | Remove-AppxPackage
+
+    - name: Uninstall GamingApp
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.GamingApp | Remove-AppxPackage
+
+    - name: Uninstall BingSearch
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.BingSearch | Remove-AppxPackage
+
+    - name: Uninstall BingNews
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.BingNews | Remove-AppxPackage
+
+    - name: Uninstall OutlookForWindows
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.OutlookForWindows | Remove-AppxPackage
+
+    - name: Uninstall ScreenSketch
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.ScreenSketch | Remove-AppxPackage
+
+    - name: Uninstall MicrosoftOfficeHub
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.MicrosoftOfficeHub | Remove-AppxPackage
+
+      - name: Uninstall Todos
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.Todos | Remove-AppxPackage
+
+    - name: Uninstall WindowsNotepad
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.WindowsNotepad | Remove-AppxPackage
+
+    - name: Uninstall Paint
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.Paint | Remove-AppxPackage
+
+    - name: Uninstall PowerAutomateDesktop
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.PowerAutomateDesktop | Remove-AppxPackage
+
+    - name: Uninstall QuickAssist
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name MicrosoftCorporationII.QuickAssist | Remove-AppxPackage
+
+    - name: Uninstall WindowsSoundRecorder
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.WindowsSoundRecorder | Remove-AppxPackage
+
+    - name: Uninstall BingWeather
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.BingWeather | Remove-AppxPackage
+
+    - name: Uninstall WindowsAlarms
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.WindowsAlarms | Remove-AppxPackage
+
+    - name: Uninstall Xbox
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name *Xbox* | Remove-AppxPackage
+    
+  
     - name: Uninstall OneDrive
       ansible.windows.win_shell: |
         winget uninstall "Microsoft OneDrive"
