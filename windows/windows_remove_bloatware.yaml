@@ -69,29 +69,3 @@
       ansible.windows.win_shell: |
         winget uninstall "*Xbox*"
       ignore_errors: true
-
-
-
-
-#    - name: Uninstall GetHelp
-#      ansible.windows.win_shell: |
-#        Get-AppxPackage -Name Microsoft.GetHelp | Remove-AppxPackage
-#    - name: Uninstall GamingApp
-#      ansible.windows.win_shell: |
-#        Get-AppxPackage -Name Microsoft.GamingApp | Remove-AppxPackage
-    #- name: Uninstall OneDrive
-    #  ansible.windows.win_shell: |
-    #    winget uninstall "Microsoft OneDrive"
-    #  ignore_errors: true
-    #- name: Uninstall OClipchamp
-    #  ansible.windows.win_shell: |
-    #    winget uninstall "Microsoft Clipchamp"
-    #  ignore_errors: true
-    #- name: Uninstall Microsoft Teams
-    #  ansible.windows.win_shell: |
-    #    winget uninstall "Microsoft Teams"
-    #  ignore_errors: true
-    #- name: Uninstall Xbox 
-    #  ansible.windows.win_shell: |
-    #    winget uninstall "Xbox"
-    #  ignore_errors: true
