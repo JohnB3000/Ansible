@@ -5,8 +5,8 @@
     chocolatey.chocolatey.win_chocolatey:
       name:
         - brave
-        - bitwarden-chrome
-        - geforce-experience
+        #- bitwarden-chrome
+        #- geforce-experience
         # - notepadplusplus
         # - mremoteng
         # - steam
