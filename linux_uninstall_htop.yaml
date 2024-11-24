@@ -1,6 +1,6 @@
 - hosts: all
   tasks:
-  - name: htop
+  - name: Uninstall htop
     become: true
     apt:
       name:
