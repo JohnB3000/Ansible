@@ -65,7 +65,10 @@
     - name: Uninstall ZuneMusic
       ansible.windows.win_shell: |
         Get-AppxPackage -Name Microsoft.ZuneMusic | Remove-AppxPackage
-    - name: Uninstall Xbox 
+    - name: Remove Xbox App 
       ansible.windows.win_shell: |
-        winget uninstall "*Xbox*"
-      ignore_errors: true
+        Get-AppxPackage "*GamingApp*" | Remove-AppPackage
+    - name: Uninstall Xbox Live
+      ansible.windows.win_shell: |
+        Get-AppxPackage -Name Microsoft.Xbox.TCUI | Remove-AppxPackage
+      
