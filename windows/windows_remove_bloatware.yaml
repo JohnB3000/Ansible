@@ -1,11 +1,8 @@
-- name: Remove Windows bloatware 
+- name: Remove Windows 11 bloatware 
   hosts: all
-  vars:
-    bloatware_apps:
-      - "Microsoft.MicrosoftSolitaireCollection"
   tasks:
     - name: Uninstall bloatware apps
-      win_package:
-        name: "{{ item }}"
-        state: absent
-      loop: "{{ bloatware_apps }}"
+  win_shell: |
+    Get-AppxPackage -Name {{ item }} | Remove-AppxPackage
+  loop:
+    - Microsoft.MicrosoftSolitaireCollection
