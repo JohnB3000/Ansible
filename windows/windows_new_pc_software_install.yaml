@@ -28,12 +28,12 @@
       win_file:
         path: C:\Temp\BraveBrowserSetup-x64.exe
         state: absent
-    - name: Ensure Brave is installed for all users
-      win_regedit:
-        path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Brave
-        name: DisplayName
-        data: Brave
-        state: present
+    # - name: Ensure Brave is installed for all users
+    #   win_regedit:
+    #     path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Brave
+    #     name: DisplayName
+    #     data: Brave
+    #     state: present
 
     - name: Install Bitwarden for Brave
       win_chocolatey:
@@ -41,6 +41,12 @@
         state: present
         pinned: true
 
+
+
+    - name: Remove installer after installation
+      win_file:
+        path: C:\Temp\*
+        state: absent
 
 
 
