@@ -6,15 +6,11 @@
         name: "Region"
         value: "GB"
         level: "machine" # can be set to machine, process, user
-      args:
-        executable: powershell.exe
 
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
         $env:Region = "US"  # Set region
         winget install brave --source msstore --accept-source-agreements --accept-package-agreements
-      args:
-        executable: powershell.exe
       become: true
 
       
