@@ -5,7 +5,7 @@
       win_environment:
         name: "Region"
         value: "GB"
-        level: "system" # can be set to user 
+        level: "machine" # can be set to machine, process, user
 
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
