@@ -1,6 +1,11 @@
 - name: New PC Software Install
   hosts: all
   tasks:
+    - name: Set region for msstore
+      win_environment:
+        name: "Region"
+        value: "GB"
+        
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
         winget install -e --id Brave.Brave
