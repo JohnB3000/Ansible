@@ -1,5 +1,6 @@
 - name: New PC Software Install
   hosts: all
+  become: true
   tasks:
     - name: Set region for msstore
       win_environment:
@@ -9,15 +10,12 @@
 
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
-        $env:Region = "GB"  # Set region
-        Start-Process winget -ArgumentList "install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements" -Verb RunAs
-      become: true
-      args:
-        executable: powershell
+        winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
+      
 
 
 
-
+#        $env:Region = "GB"  # Set region
       
 # winget install brave --source msstore --scope machine --accept-source-agreements --accept-package-agreements
 #      become: true
