@@ -14,12 +14,12 @@
     #   become: true
     #   args:
     #     executable: powershell
+    - name: Install application via winget (with elevated privileges)
+      win_shell: |
+        Start-Process winget -ArgumentList "install Brave" -Verb RunAs
+      args:
+        executable: powershell.exe
 
-    - name: Powershell install brave
-      ansible.windows.win_powershell:
-        script: |
-          $env:Region = "GB"  # Set region
-          winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
 
       
 # winget install brave --source msstore --scope machine --accept-source-agreements --accept-package-agreements
