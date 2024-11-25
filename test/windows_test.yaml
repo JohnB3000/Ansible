@@ -3,8 +3,18 @@
   become: yes  # Ensure the tasks are run with administrative privileges
   gather_facts: yes
   tasks:
+    - name: Ensure the directory exists
+      win_file:
+        path: C:\Temp\
+        state: directory
+        recurse: yes
+
+    - name: Download geforce-experience Installer
+      win_get_url:
+        url: https://uk.download.nvidia.com/nvapp/client/11.0.1.163/NVIDIA_app_v11.0.1.163.exe
+        dest: C:\Temp\geforce-experience.exe
     - name: Install geforce-experience
-      win_chocolatey:
-        name: geforce-experience
+      win_package:
+        path: C:\Temp\geforce-experience.exe
         state: present
-        pinned: true
+        arguments: /silent /install
