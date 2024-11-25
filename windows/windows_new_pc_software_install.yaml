@@ -12,6 +12,8 @@
         $env:Region = "US"  # Set region
         winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
       become: true
+      args:
+        executable: powershell
 
       
 # winget install brave --source msstore --scope machine --accept-source-agreements --accept-package-agreements
