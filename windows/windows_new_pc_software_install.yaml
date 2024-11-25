@@ -21,7 +21,6 @@
       win_chocolatey:
         name: chocolatey
         state: present
-        version: latest
 
     - name: Install Brave using Chocolatey
       win_chocolatey:
