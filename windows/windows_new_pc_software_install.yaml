@@ -10,7 +10,7 @@
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
         $env:Region = "US"  # Set region
-        winget install -e --id Brave.Brave --accept-source-agreements
+        winget install brave --accept-source-agreements
       become: true
 
       
