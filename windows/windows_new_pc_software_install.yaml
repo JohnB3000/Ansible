@@ -6,17 +6,20 @@
         name: "Region"
         value: "GB"
         level: "machine" # can be set to machine, process, user
-    - name: Install Brave Browser using winget
+        
+    - name: Install Brave Browser
       ansible.windows.win_shell: |
         winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
+    - name: Install GeForceExperience
+      ansible.windows.win_shell: |
+        winget install -e --id Nvidia.GeForceExperience --source winget --scope machine --accept-source-agreements --accept-package-agreements
 
 
 
 
+ #      
 
- #      # - brave
-        #- bitwarden-chrome
-        #- geforce-experience
+        #- geforce-experience    winget install -e --id Nvidia.GeForceExperience
         # - notepadplusplus
         # - mremoteng
         # - steam
@@ -31,10 +34,6 @@
         # - vscode
         # - greenshot
 
-    - name: Remove installer after installation
-      win_file:
-        path: C:\Temp\*
-        state: absent
 
 
  
