@@ -5,10 +5,12 @@
       ansible.windows.win_shell: |
         winget source remove msstore
       become: true
+      ignore_errors: true
     - name: reset source
       ansible.windows.win_shell: |
         winget source reset
-      become: true   
+      become: true
+      ignore_errors: true
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
         winget install -e --id Brave.Brave
