@@ -2,7 +2,7 @@
   hosts: all
   gather_facts: yes
   tasks:
-    - name: Remove installer after installation
+    - name: Create C:\Temp\
       win_file:
         path: C:\Temp\
         state: present
