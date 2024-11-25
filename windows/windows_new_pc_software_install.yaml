@@ -27,8 +27,7 @@
         name: bitwarden-chrome
         state: present
         pinned: true
-        choco_args:
-        - force
+
 
 
 
