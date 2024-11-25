@@ -1,30 +1,33 @@
-- name: New PC Software Install
+# - name: New PC Software Install
+#   hosts: all
+#   tasks:
+#     - name: Set region for msstore
+#       win_environment:
+#         name: "Region"
+#         value: "GB"
+#         level: "machine" # can be set to machine, process, user
+#     - name: Install Brave Browser using winget
+#       ansible.windows.win_shell: |
+#         winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
+      
+
+- name: Install Brave Browser using Chocolatey for All Users
   hosts: all
+  become: yes  # Ensure the tasks are run with administrative privileges
+  gather_facts: yes
   tasks:
-    - name: Set region for msstore
-      win_environment:
-        name: "Region"
-        value: "GB"
-        level: "machine" # can be set to machine, process, user
-    - name: Install Brave Browser using winget
-      ansible.windows.win_shell: |
-        winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
-      
 
+    - name: Install Chocolatey (if not already installed)
+      win_chocolatey:
+        name: chocolatey
+        state: present
+        version: latest
 
+    - name: Install Brave using Chocolatey
+      win_chocolatey:
+        name: brave
+        state: present
 
-#        $env:Region = "GB"  # Set region
-      
-# winget install brave --source msstore --scope machine --accept-source-agreements --accept-package-agreements
-#      become: true
-
-
-#      become: true
-    # - name: Update winget sources and accept agreements
-    #   ansible.windows.win_shell: |
-    #     winget source update --accept-package-agreements --accept-source-agreements
-    #   register: result
-    #   become: true
 
   # - name: Install Chocolatry packages
   #   chocolatey.chocolatey.win_chocolatey:
