@@ -1,6 +1,5 @@
 - name: New PC Software Install
   hosts: all
-  become: true
   tasks:
     - name: Set region for msstore
       win_environment:
