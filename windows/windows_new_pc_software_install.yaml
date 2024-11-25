@@ -7,18 +7,15 @@
         value: "GB"
         level: "machine" # can be set to machine, process, user
 
-    # - name: Install Brave Browser using winget
-    #   ansible.windows.win_shell: |
-    #     $env:Region = "US"  # Set region
-    #     winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
-    #   become: true
-    #   args:
-    #     executable: powershell
-    - name: Install application via winget (with elevated privileges)
-      win_shell: |
-        Start-Process winget -ArgumentList "install Brave" -Verb RunAs
+    - name: Install Brave Browser using winget
+      ansible.windows.win_shell: |
+        $env:Region = "GB"  # Set region
+        winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
+      become: true
       args:
-        executable: powershell.exe
+        executable: powershell
+        
+
 
 
       
