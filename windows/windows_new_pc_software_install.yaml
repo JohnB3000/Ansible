@@ -9,7 +9,7 @@
 
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
-        winget install -e --id Brave.Brave
+        winget install -e --id Brave.Brave --accept-source-agreements
       become: true
 
       
