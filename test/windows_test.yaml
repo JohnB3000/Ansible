@@ -1,0 +1,10 @@
+- name: Install Software
+  hosts: all
+  become: yes  # Ensure the tasks are run with administrative privileges
+  gather_facts: yes
+  tasks:
+    - name: Install geforce-experience
+      win_chocolatey:
+        name: geforce-experience
+        state: present
+        pinned: true

@@ -1,28 +1,41 @@
-# - name: New PC Software Install
-#   hosts: all
-#   tasks:
-#     - name: Set region for msstore
-#       win_environment:
-#         name: "Region"
-#         value: "GB"
-#         level: "machine" # can be set to machine, process, user
-#     - name: Install Brave Browser using winget
-#       ansible.windows.win_shell: |
-#         winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
-      
-
-- name: Install Brave Browser using Chocolatey for All Users
+- name: Install Software
   hosts: all
   become: yes  # Ensure the tasks are run with administrative privileges
   gather_facts: yes
   tasks:
+    - name: Ensure the directory exists
+      win_file:
+        path: C:\Temp\
+        state: directory
+        recurse: yes
 
-    - name: Install Chocolatey (if not already installed)
-      win_chocolatey:
-        name: chocolatey
+    # - name: Install Chocolatey (if not already installed)
+    #   win_chocolatey:
+    #     name: chocolatey
+    #     state: present
+
+# Install Brave
+    - name: Download Brave Browser Installer
+      win_get_url:
+        url: https://laptop-updates.brave.com/latest/winx64
+        dest: C:\Temp\BraveBrowserSetup-x64.exe
+    - name: Install Brave Browser
+      win_package:
+        path: C:\Temp\BraveBrowserSetup-x64.exe
+        state: present
+        arguments: /silent /install
+    - name: Remove installer after installation
+      win_file:
+        path: C:\Temp\BraveBrowserSetup-x64.exe
+        state: absent
+    - name: Ensure Brave is installed for all users
+      win_regedit:
+        path: HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Brave
+        name: DisplayName
+        data: Brave
         state: present
 
-    - name: Install Brave using Chocolatey
+    - name: Install Bitwarden for Brave
       win_chocolatey:
         name: bitwarden-chrome
         state: present
@@ -34,8 +47,7 @@
   # - name: Install Chocolatry packages
   #   chocolatey.chocolatey.win_chocolatey:
   #     name:
-  #       - brave
-        #- bitwarden-chrome
+
         #- geforce-experience
         # - notepadplusplus
         # - mremoteng
