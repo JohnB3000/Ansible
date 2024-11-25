@@ -28,7 +28,8 @@
         state: present
         pinned: true
         choco_args:
-        - /SILENT
+        - force
+        - silent
 
 
 
