@@ -1,7 +1,5 @@
 - name: Install Software
   hosts: all
-  become: yes  # Ensure the tasks are run with administrative privileges
-  gather_facts: yes
   tasks:
     - name: Set region for msstore
       win_environment:
