@@ -19,6 +19,7 @@
       ansible.windows.win_powershell:
         script: |
           $env:Region = "US"  # Set region
+          winget source reset --force
           winget install -e --id Brave.Brave --source winget --scope machine --accept-source-agreements --accept-package-agreements
 
       
