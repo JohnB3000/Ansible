@@ -2,10 +2,11 @@
   hosts: all
   gather_facts: yes
   tasks:
-    - name: Create C:\Temp\
+    - name: Ensure the directory exists
       win_file:
         path: C:\Temp\
-        state: present
+        state: directory
+        recurse: yes
 
     - name: Download Brave Browser Installer
       win_get_url:
