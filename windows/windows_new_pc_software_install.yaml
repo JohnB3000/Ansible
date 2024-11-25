@@ -24,12 +24,11 @@
 
     - name: Install Brave using Chocolatey
       win_chocolatey:
-        name: brave
+        name: bitwarden-chrome
         state: present
         pinned: true
         choco_args:
         - force
-        - silent
 
 
 
