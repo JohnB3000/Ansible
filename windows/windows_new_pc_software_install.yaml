@@ -1,16 +1,6 @@
 - name: New PC Software Install
   hosts: all
   tasks:
-    - name: disabel MSStore
-      ansible.windows.win_shell: |
-        winget source remove msstore
-      become: true
-      ignore_errors: true
-    - name: reset source
-      ansible.windows.win_shell: |
-        winget source reset
-      become: true
-      ignore_errors: true
     - name: Install Brave Browser using winget
       ansible.windows.win_shell: |
         winget install -e --id Brave.Brave
@@ -23,14 +13,9 @@
 #      become: true
     # - name: Update winget sources and accept agreements
     #   ansible.windows.win_shell: |
-    #     winget source update --accept-package-agreements
+    #     winget source update --accept-package-agreements --accept-source-agreements
     #   register: result
     #   become: true
-
-    # - name: Install Brave
-    #   ansible.windows.win_shell: |
-    #     winget install -e --id Brave.Brave --accept-source-agreements
-    
 
   # - name: Install Chocolatry packages
   #   chocolatey.chocolatey.win_chocolatey:
