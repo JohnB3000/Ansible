@@ -26,6 +26,9 @@
       win_chocolatey:
         name: brave
         state: present
+        choco_args:
+          - --force 
+          - --params "'ALLUSERS=1"
 
 
   # - name: Install Chocolatry packages
