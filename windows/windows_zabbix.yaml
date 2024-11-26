@@ -1,0 +1,44 @@
+- name: Install Zabbix 2 Agent on Windows
+  hosts: wall
+  gather_facts: no
+  tasks:
+    - name: Ensure the directory exists
+      ansible.windows.win_file:
+          path: C:\Windows\Temp\
+          state: directory
+          recurse: yes
+    - name: Download Zabbix 2 agent MSI installer
+      ansible.windows.win_get_url:
+        url: https://cdn.zabbix.com/zabbix/binaries/stable/7.0/7.0.6/zabbix_agent2-7.0.6-windows-amd64-openssl.msi
+        dest: C:\Windows\Temp\zabbix_agent.msi
+    - name: Install Zabbix agent MSI
+      ansible.windows.win_package:
+        path: C:\Windows\Temp\zabbix_agent.msi
+        state: present
+
+
+    - name: Clone the Azure DevOps repository using git
+      ansible.builtin.git:
+        repo: https://kynetec@dev.azure.com/kynetec/IT%20Azure%20IaC/_git/Azure-Zabbix-Monitoring
+        dest: C:\Windows\Temp\
+        version: "develop"
+        clone: yes
+        update: yes
+
+        username: "your_username"  # Can be any string
+        password: "{{ lookup('credentials', 'Azure DevOps') }}"  # Assumes PAT is stored in the environment variable
+        force: yes
+
+
+
+
+    - name: Start Zabbix agent service
+      ansible.windows.win_service:
+        name: "Zabbix Agent"
+        state: started
+        start_mode: auto
+
+    - name: Clean up installer file
+      ansible.windows.win_file:
+        path: C:\Windows\Temp\zabbix_agent.msi
+        state: absent

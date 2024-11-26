@@ -1,13 +1,14 @@
 - name: Install Software
   hosts: all
   tasks:
-    - name: Download FPSMonitor
-      ansible.windows.win_get_url:
-        url: https://www.fpsmon.com/bin/fpsmon-5503.exe
-        dest: C:\Temp\fpsmon-5503.exe
-        force: false
-    - name: Install FPSMonitor
-      ansible.windows.win_package:
-        path: C:\Temp\fpsmon-5503.exe
-        state: present
-        arguments: /S
+    - name: Clone the Azure DevOps repository using git
+      ansible.builtin.git:
+        repo: https://kynetec@dev.azure.com/kynetec/IT%20Azure%20IaC/_git/Azure-Zabbix-Monitoring
+        dest: C:\Windows\Temp\
+        version: "develop"
+        clone: yes
+        update: yes
+
+        username: "your_username"  # Can be any string
+        password: "{{ lookup('credentials', 'Azure DevOps') }}"  # Assumes PAT is stored in the environment variable
+        force: yes
