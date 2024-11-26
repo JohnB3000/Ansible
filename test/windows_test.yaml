@@ -12,8 +12,8 @@
         url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe
         dest: C:\Temp\npp.8.7.1.Installer.x64.exe
         force: false
-    - name: Install Notepad ++
-      win_package:
-        path: C:\Temp\npp.8.7.1.Installer.x64.exe
-        state: present
-        arguments: /silent /install
+#    - name: Install Notepad ++
+#      win_package:
+#        path: C:\Temp\npp.8.7.1.Installer.x64.exe
+#        state: present
+#        arguments: /silent /install
