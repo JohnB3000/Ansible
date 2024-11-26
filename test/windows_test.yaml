@@ -7,13 +7,13 @@
           state: directory
           recurse: yes
 
-    - name: Download NVIDIA_app
+    - name: Download the NVIDIA GeForce Experience installer
       ansible.windows.win_get_url:
-        url: https://uk.download.nvidia.com/nvapp/client/11.0.1.163/NVIDIA_app_v11.0.1.163.exe
-        dest: C:\Temp\NVIDIA_app.exe
-        force: false
-    - name: Install Nvidia APP
-      win_package:
-        path: C:\Temp\NVIDIA_app.exe
+        url: https://www.nvidia.com/download/driverResults.aspx/175206/en-us
+        dest: C:\Temp\GeForce_Experience_Installer.exe
+
+    - name: Install NVIDIA GeForce Experience using the installer
+      ansible.windows.win_package:
+        path: C:\Temp\GeForce_Experience_Installer.exe
         state: present
-        arguments: /silent /install
+        arguments: /S
