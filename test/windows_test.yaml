@@ -12,47 +12,47 @@
       ansible.windows.win_get_url:
         url: https://laptop-updates.brave.com/latest/winx64
         dest: C:\Temp\BraveBrowserSetup-x64.exe
-        force: true
+        force: false
     - name: Download NVIDIA_app
       ansible.windows.win_get_url:
         url: https://uk.download.nvidia.com/nvapp/client/11.0.1.163/NVIDIA_app_v11.0.1.163.exe
         dest: C:\Temp\NVIDIA_app_v11.0.1.163.exe
-        force: true
+        force: false
     - name: Download Nnotepad ++
       ansible.windows.win_get_url:
         url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.arm64.exe
         dest: C:\Temp\npp.8.7.1.Installer.arm64.exe
-        force: true
+        force: false
     - name: Download Steam
       ansible.windows.win_get_url:
         url: https://cdn.fastly.steamstatic.com/client/installer/SteamSetup.exe
         dest: C:\Temp\SteamSetup.exe
-        force: true
+        force: false
     - name: Download FPSMonitor
       ansible.windows.win_get_url:
         url: https://www.fpsmon.com/bin/fpsmon-5503.exe
         dest: C:\Temp\fpsmon-5503.exe
-        force: true
+        force: false
     - name: Download iQUE
       ansible.windows.win_get_url:
         url: https://www3.corsair.com/software/CUE_V5/public/modules/windows/installer/Install%20iCUE.exe
         dest: C:\Temp\iQUE.exe
-        force: true
+        force: false
     - name: Download Logitech Ghub
       ansible.windows.win_get_url:
         url: https://download01.logi.com/web/ftp/pub/techsupport/gaming/lghub_installer.exe
         dest: C:\Temp\lghub_installer.exe
-        force: true
+        force: false
     - name: Download System Informer
       ansible.windows.win_get_url:
         url: https://downloads.sourceforge.net/project/systeminformer/systeminformer-3.1.24298-release-setup.exe?ts=gAAAAABnROHjEBxvfaTtqDx0t3pK0dkZtaYxQp1FzKtxecha-zQNXV2r10q3V8EjscJSsbFvu3zBrMXW23A79lo_DBiaekFBtQ%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fsysteminformer%2Ffiles%2Fsysteminformer-3.1.24298-release-setup.exe%2Fdownload
         dest: C:\Temp\systeminformer.exe
-        force: true
+        force: false
     - name: Download aquasuite
       ansible.windows.win_get_url:
         url: https://aquacomputer.de/software.html?file=tl_files/aquacomputer/downloads/aquasuite/aquasuite_setup.exe
-        dest: C:\Tmmp\aquasuite_setup.exe
-        force: true
+        dest: C:\Temp\aquasuite_setup.exe
+        force: false
 
 
 
@@ -73,7 +73,7 @@
   #   win_chocolatey:
   #     name: bitwarden-chrome
   #     state: present
-  #     pinned: true
+  #     pinned: false
 
 
 
