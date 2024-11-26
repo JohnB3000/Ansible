@@ -7,13 +7,13 @@
           state: directory
           recurse: yes
 
-    - name: Download the Notepad++ installer
+    - name: Download NVIDIA_app
       ansible.windows.win_get_url:
-        url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe
-        dest: C:\Temp\npp_installer.exe
-
-    - name: Install Notepad++ using the installer
-      ansible.windows.win_package:
-        path: C:\Temp\npp_installer.exe
+        url: https://uk.download.nvidia.com/nvapp/client/11.0.1.163/NVIDIA_app_v11.0.1.163.exe
+        dest: C:\Temp\NVIDIA_app.exe
+        force: false
+    - name: Install Nvidia APP
+      win_package:
+        path: C:\Temp\NVIDIA_app.exe
         state: present
-        arguments: /S
+        arguments: /silent /install
