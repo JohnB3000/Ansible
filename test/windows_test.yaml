@@ -13,11 +13,11 @@
         url: https://laptop-updates.brave.com/latest/winx64
         dest: C:\Temp\BraveBrowserSetup-x64.exe
         force: false
-    - name: Download Nnotepad ++
-      ansible.windows.win_get_url:
-        url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.arm64.exe
-        dest: C:\Temp\npp.8.7.1.Installer.arm64.exe
-        force: false
+    # - name: Download Nnotepad ++
+    #   ansible.windows.win_get_url:
+    #     url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.arm64.exe
+    #     dest: C:\Temp\npp.8.7.1.Installer.arm64.exe
+    #     force: false
     - name: Download NVIDIA_app
       ansible.windows.win_get_url:
         url: https://uk.download.nvidia.com/nvapp/client/11.0.1.163/NVIDIA_app_v11.0.1.163.exe
@@ -64,7 +64,7 @@
         arguments: /silent /install
     - name: Install Notepad ++
       win_package:
-        path: C:\Temp\npp.8.7.1.Installer.arm64.exe
+        path: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe
         state: present
         arguments: /silent /install
 
