@@ -1,6 +1,12 @@
 - name: Install Software
   hosts: all
   tasks:
+    - name: Ensure the directory exists
+      win_file:
+          path: C:\Temp\
+          state: directory
+          recurse: yes
+          
     - name: Download Nnotepad ++
       ansible.windows.win_get_url:
         url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe
