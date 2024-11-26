@@ -1,5 +1,5 @@
 - name: Download private Azure DevOps repository ZIP file
-  hosts: windows
+  hosts: all
   gather_facts: yes
   vars:
     organization: "kynetec"
@@ -9,7 +9,7 @@
     pat: "{{ lookup('env', 'Azure DevOps') }}"
     
   tasks:
-    - name: Download repository ZIP file from Azure DevOps
+    - name: Download repository
       ansible.windows.win_get_url:
         url: https://dev.azure.com/{{ organization }}/{{ project }}/_git/{{ repository }}?path=/&version=GB{{ branch }}
         dest: C:\windows\temp\repo.zip
