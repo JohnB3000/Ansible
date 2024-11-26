@@ -9,6 +9,6 @@
         clone: yes
         update: yes
 
-        username: "your_username"  # Can be any string
-        password: "{{ lookup('credentials', 'Azure DevOps') }}"  # Assumes PAT is stored in the environment variable
+        username: "your_username"
+        password: "{{ lookup('env', 'Azure DevOps') }}"
         force: yes
