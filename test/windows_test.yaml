@@ -33,7 +33,7 @@
           Authorization: "{{ auth_header }}"
         dest: "{{ destination_directory }}\\{{ file_name }}"
       vars:
-        azure_devops_pat: {{ lookup('env', 'Azure DevOps') }}
+        azure_devops_pat: "{{ lookup('env', 'Azure DevOps') }}"
         organization: kynetec
         project: "IT Azure IaC"
         repository: Azure-Zabbix-Monitoring
