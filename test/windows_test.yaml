@@ -22,3 +22,7 @@
         src: C:\windows\temp\repo.zip
         dest: C:\windows\temp\repo
         creates: C:\windows\temp\repo
+
+
+
+https://kynetec@dev.azure.com/kynetec/IT%20Azure%20IaC/_git/Azure-Zabbix-Monitoring
