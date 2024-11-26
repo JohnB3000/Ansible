@@ -1,19 +1,13 @@
 - name: Install Software
   hosts: all
   tasks:
-    - name: Ensure the directory exists
-      win_file:
-          path: C:\Temp\
-          state: directory
-          recurse: yes
-
-    - name: Download the NVIDIA GeForce Experience installer
+    - name: Download Steam
       ansible.windows.win_get_url:
-        url: https://uk.download.nvidia.com/GFE/GFEClient/3.28.0.417/GeForce_Experience_v3.28.0.417.exe
-        dest: C:\Temp\GeForce_Experience_Installer.exe
-
-    - name: Install NVIDIA GeForce Experience using the installer
+        url: https://cdn.fastly.steamstatic.com/client/installer/SteamSetup.exe
+        dest: C:\Temp\SteamSetup.exe
+        force: false
+    - name: Install Steam
       ansible.windows.win_package:
-        path: C:\Temp\GeForce_Experience_Installer.exe
+        path: C:\Temp\SteamSetup.exe
         state: present
         arguments: /S
