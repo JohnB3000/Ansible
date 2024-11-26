@@ -12,7 +12,7 @@
     #   ansible.windows.win_get_url:
     #     url: https://laptop-updates.brave.com/latest/winx64
     #     dest: C:\Temp\BraveBrowserSetup-x64.exe
-        force: false
+    #    force: false
     # - name: Download Nnotepad ++
     #   ansible.windows.win_get_url:
     #     url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.arm64.exe
