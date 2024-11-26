@@ -16,6 +16,4 @@
       win_package:
         path: C:\Temp\npp.8.7.1.Installer.x64.exe
         state: present
-        arguments: 
-          - /silent 
-          - /install
+        arguments: /silent /install
