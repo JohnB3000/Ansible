@@ -8,6 +8,6 @@
         force: false
     - name: Install Notepad ++
       win_package:
-        path: C:\Temp\npp.8.7.1.Installer.arm64.exe
+        path: C:\Temp\npp.8.7.1.Installer.x64.exe
         state: present
         arguments: /silent /install
