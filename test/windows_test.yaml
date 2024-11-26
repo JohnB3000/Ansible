@@ -17,4 +17,3 @@
         path: C:\Temp\npp_installer.exe
         state: present
         arguments: /S
-#        product_id: Notepad++
