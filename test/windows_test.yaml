@@ -1,11 +1,11 @@
 - name: Install Software
   hosts: all
   tasks:
-    - name: Download Nnotepad ++
-      ansible.windows.win_get_url:
-        url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe
-        dest: C:\Temp\npp.8.7.1.Installer.arm64.exe
-        force: false
+#    - name: Download Nnotepad ++
+#      ansible.windows.win_get_url:
+#        url: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe
+#        dest: C:\Temp\npp.8.7.1.Installer.arm64.exe
+#        force: false
     - name: Install Notepad ++
       win_package:
         path: https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.1/npp.8.7.1.Installer.x64.exe
