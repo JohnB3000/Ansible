@@ -50,9 +50,9 @@
       force: true
   - name: Download aquasuite
     win_get_url:
-    url: https://aquacomputer.de/software.html?file=tl_files/aquacomputer/downloads/aquasuite/aquasuite_setup.exe
-    dest: C:\Tmmp\aquasuite_setup.exe
-    force: true
+      url: https://aquacomputer.de/software.html?file=tl_files/aquacomputer/downloads/aquasuite/aquasuite_setup.exe
+      dest: C:\Tmmp\aquasuite_setup.exe
+      force: true
 
 
 
