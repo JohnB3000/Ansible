@@ -1,6 +1,6 @@
 - name: Install Software
   hosts: all
-  Task:
+  tasks:
   - name: Ensure the directory exists
     win_file:
         path: C:\Temp\
