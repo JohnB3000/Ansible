@@ -18,7 +18,7 @@
       register: result
 
     - name: Extract the ZIP file
-      ansible.windows.win_unzip:
+      community.windows.win_unzip:
         src: C:\windows\temp\repo.zip
         dest: C:\windows\temp\repo
         creates: C:\windows\temp\repo
