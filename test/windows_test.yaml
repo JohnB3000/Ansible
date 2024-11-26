@@ -1,41 +1,24 @@
-- name: Install Software
-  hosts: all
+- name: Download private Azure DevOps repository ZIP file
+  hosts: windows
+  gather_facts: yes
+  vars:
+    organization: "kynetec"
+    project: "IT Azure IaC"
+    repository: "Azure-Zabbix-Monitoring"
+    branch: "develop"
+    pat: "{{ lookup('env', 'Azure DevOps') }}"
+    
   tasks:
-    # - name: Clone the Azure DevOps repository using git
-    #   ansible.builtin.git:
-    #     repo: https://kynetec@dev.azure.com/kynetec/IT%20Azure%20IaC/_git/Azure-Zabbix-Monitoring
-    #     dest: C:\Windows\Temp\
-    #     version: "develop"
-    #     clone: yes
-    #     update: yes
-
-    #     username: "your_username"
-    #     password: "{{ lookup('env', 'Azure DevOps') }}"
-    #     force: yes
-
-
-
-    - name: Set Variables
-      set_fact:
-        repo_url: https://dev.azure.com/{{ organization }}/{{ project }}/_apis/git/repositories/{{ repository }}/items?path={{ file_path }}&download=true&api-version=6.0
-        destination_directory: C:\windows\temp
-        auth_header: Basic {{ azure_devops_pat | b64encode }}
- 
-    - name: Ensure destination directory exists
-      win_file:
-        path: "{{ destination_directory }}"
-        state: directory
- 
-    - name: Download file from Azure DevOps
-      win_get_url:
-        url: "{{ repo_url }}"
+    - name: Download repository ZIP file from Azure DevOps
+      ansible.windows.win_get_url:
+        url: https://dev.azure.com/{{ organization }}/{{ project }}/_git/{{ repository }}?path=/&version=GB{{ branch }}
+        dest: C:\windows\temp\repo.zip
         headers:
-          Authorization: "{{ auth_header }}"
-        dest: "{{ destination_directory }}\\{{ file_name }}"
-      vars:
-        azure_devops_pat: "{{ lookup('env', 'Azure DevOps') }}"
-        organization: "kynetec"
-        project: "IT Azure IaC"
-        repository: "Azure-Zabbix-Monitoring"
-        file_path: "/windows_agent/zabbix_config/zabbix_agent2.conf"  # Path in the repository to the file you want to download (e.g., /path/to/file.txt)
-        file_name: "zabbix_agent2.conf"  # The desired name for the downloaded file
+          Authorization: "Basic {{ pat | password_hash('sha512') }}"
+      register: result
+
+    - name: Extract the ZIP file
+      ansible.windows.win_unzip:
+        src: C:\windows\temp\repo.zip
+        dest: C:\windows\temp\repo
+        creates: C:\windows\temp\repo
