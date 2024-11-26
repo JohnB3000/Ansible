@@ -62,6 +62,11 @@
         path: C:\Temp\BraveBrowserSetup-x64.exe
         state: present
         arguments: /silent /install
+    - name: Install Notepad ++
+      win_package:
+        path: C:\Temp\npp.8.7.1.Installer.arm64.exe
+        state: present
+        arguments: /silent /install
 
   # - name: Install Bitwarden for Brave
   #   win_chocolatey:
