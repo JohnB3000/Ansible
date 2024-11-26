@@ -9,7 +9,7 @@
 
     - name: Download the NVIDIA GeForce Experience installer
       ansible.windows.win_get_url:
-        url: https://www.nvidia.com/download/driverResults.aspx/175206/en-us
+        url: https://uk.download.nvidia.com/GFE/GFEClient/3.28.0.417/GeForce_Experience_v3.28.0.417.exe
         dest: C:\Temp\GeForce_Experience_Installer.exe
 
     - name: Install NVIDIA GeForce Experience using the installer
