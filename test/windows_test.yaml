@@ -34,8 +34,8 @@
         dest: "{{ destination_directory }}\\{{ file_name }}"
       vars:
         azure_devops_pat: "{{ lookup('env', 'Azure DevOps') }}"
-        organization: kynetec
+        organization: "kynetec"
         project: "IT Azure IaC"
-        repository: Azure-Zabbix-Monitoring
-        file_path: /windows_agent/zabbix_config/zabbix_agent2.conf  # Path in the repository to the file you want to download (e.g., /path/to/file.txt)
-        file_name: zabbix_agent2.conf  # The desired name for the downloaded file
+        repository: "Azure-Zabbix-Monitoring"
+        file_path: "/windows_agent/zabbix_config/zabbix_agent2.conf"  # Path in the repository to the file you want to download (e.g., /path/to/file.txt)
+        file_name: "zabbix_agent2.conf"  # The desired name for the downloaded file
