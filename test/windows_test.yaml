@@ -1,13 +1,13 @@
 - name: Install Software
   hosts: all
   tasks:
-    - name: Download Steam
+    - name: Download FPSMonitor
       ansible.windows.win_get_url:
-        url: https://cdn.fastly.steamstatic.com/client/installer/SteamSetup.exe
-        dest: C:\Temp\SteamSetup.exe
+        url: https://www.fpsmon.com/bin/fpsmon-5503.exe
+        dest: C:\Temp\fpsmon-5503.exe
         force: false
-    - name: Install Steam
+    - name: Install FPSMonitor
       ansible.windows.win_package:
-        path: C:\Temp\SteamSetup.exe
+        path: C:\Temp\fpsmon-5503.exe
         state: present
         arguments: /S
